@@ -13,15 +13,15 @@ TagManager:
   - UI
   - 
   - 
+  - 
+  - Trees
+  - 
+  - Bush
+  - 
   - Player
   - 
-  - 
-  - Terrain
-  - 
-  - 
-  - 
-  - 
-  - 
+  - TopTilemap
+  - BottomTilemap
   - 
   - 
   - 
@@ -41,9 +41,24 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: UnderPath
+    uniqueID: 3334128759
+    locked: 0
+  - name: Paths etc
+    uniqueID: 2033528695
+    locked: 0
   - name: Objects
     uniqueID: 2051946829
     locked: 0
+  - name: "Pie\u0144"
+    uniqueID: 1792217873
+    locked: 0
   - name: Character
     uniqueID: 2343258263
+    locked: 0
+  - name: Korona
+    uniqueID: 2482377967
+    locked: 0
+  - name: Top
+    uniqueID: 766723029
     locked: 0
