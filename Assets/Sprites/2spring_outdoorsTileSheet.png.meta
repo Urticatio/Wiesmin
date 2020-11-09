@@ -8,6 +8,12 @@ TextureImporter:
   - first:
       213: 2692177563137691862
     second: 2spring_outdoorsTileSheet_1
+  - first:
+      213: 9173598948697542075
+    second: 2spring_outdoorsTileSheet_2
+  - first:
+      213: -4151593547590388109
+    second: 2spring_outdoorsTileSheet_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -134,7 +140,7 @@ TextureImporter:
         width: 17
         height: 27
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -142,6 +148,48 @@ TextureImporter:
       bones: []
       spriteID: 6d0591bda398c5520800000000000000
       internalID: 2692177563137691862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2spring_outdoorsTileSheet_2
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 1196
+        width: 12
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbd8309d3ab2f4f70800000000000000
+      internalID: 9173598948697542075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2spring_outdoorsTileSheet_3
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 1184
+        width: 31
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37632102aa39266c0800000000000000
+      internalID: -4151593547590388109
       vertices: []
       indices: 
       edges: []
