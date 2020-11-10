@@ -1328,7 +1328,7 @@ TextureImporter:
         width: 31
         height: 33
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1336,6 +1336,48 @@ TextureImporter:
       bones: []
       spriteID: c175627e16c2ee840800000000000000
       internalID: 5255186614189446940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: house-interor_18
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 296
+        width: 367
+        height: 99
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c193f398e02a27970800000000000000
+      internalID: 8751235209250158876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: house-interor_19
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 296
+        width: 361
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffcb6bd25c9f54c10800000000000000
+      internalID: 2037309031725841663
       vertices: []
       indices: 
       edges: []
