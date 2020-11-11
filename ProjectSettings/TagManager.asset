@@ -47,16 +47,16 @@ TagManager:
   - name: Paths etc
     uniqueID: 2033528695
     locked: 0
-  - name: Objects
+  - name: SmallObjects
     uniqueID: 2051946829
     locked: 0
-  - name: "Pie\u0144"
+  - name: MediumObjects
     uniqueID: 1792217873
     locked: 0
   - name: Character
     uniqueID: 2343258263
     locked: 0
-  - name: Korona
+  - name: BigObjects
     uniqueID: 2482377967
     locked: 0
   - name: Top
