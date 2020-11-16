@@ -9,14 +9,11 @@ public class EnterRoom : MonoBehaviour
     public GameObject Player;
     public bool isExitDoor;
 
-
-    // Use this for initialization
     void Start()
     {
 
     }
 
-    // Update is called once per frame
     void Update()
     {
 
@@ -24,10 +21,7 @@ public class EnterRoom : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-        //if (other.gameObject.tag == "MainCharacter")
-        //{
-            StartCoroutine(Teleport());
-        //}
+        StartCoroutine(Teleport());
     }
 
 
