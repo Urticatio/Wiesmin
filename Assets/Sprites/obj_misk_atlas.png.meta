@@ -14,6 +14,15 @@ TextureImporter:
   - first:
       213: 3850424353932474372
     second: obj_misk_atlas_3
+  - first:
+      213: 1994182618574988070
+    second: Carrot
+  - first:
+      213: 1563027237622973072
+    second: Corn
+  - first:
+      213: -6080948203882831335
+    second: Tomato
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -161,7 +170,7 @@ TextureImporter:
         width: 23
         height: 31
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -182,7 +191,7 @@ TextureImporter:
         width: 15
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -190,6 +199,69 @@ TextureImporter:
       bones: []
       spriteID: 40878aaac847f6530800000000000000
       internalID: 3850424353932474372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Carrot
+      rect:
+        serializedVersion: 2
+        x: 671
+        y: 989
+        width: 34
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 623ab65a682ccab10800000000000000
+      internalID: 1994182618574988070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Corn
+      rect:
+        serializedVersion: 2
+        x: 706
+        y: 959
+        width: 27
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09207c8cdfcf0b510800000000000000
+      internalID: 1563027237622973072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tomato
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 862
+        width: 33
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 912a30aa3d12c9ba0800000000000000
+      internalID: -6080948203882831335
       vertices: []
       indices: 
       edges: []
