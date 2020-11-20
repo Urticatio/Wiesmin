@@ -108,8 +108,8 @@ TextureImporter:
       name: inventoryWindowElement
       rect:
         serializedVersion: 2
-        x: 100
-        y: 36
+        x: 190
+        y: 412
         width: 100
         height: 100
       alignment: 9

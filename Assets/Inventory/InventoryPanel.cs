@@ -11,7 +11,11 @@ public class InventoryPanel : MonoBehaviour
         SetIndex();
         Show();
     }
-    
+
+    private void OnEnable()//żeby się dobrze włączał ekwipunek
+    {
+        Show();
+    }
     private void SetIndex()
     {
         for(int i=0; i < inventory.slots.Count; i++)
