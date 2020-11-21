@@ -24,7 +24,7 @@ public class InventoryPanel : MonoBehaviour
         }
     }
 
-    private void Show() //pokazuje te sloty, w których coś jest
+    public void Show() //pokazuje te sloty, w których coś jest
     {
         for(int i=0; i< inventory.slots.Count; i++)
         {

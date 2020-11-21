@@ -1,9 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class InventoryButton : MonoBehaviour
+public class InventoryButton : MonoBehaviour, IPointerClickHandler //kliknięcie wywołuje zdarzenie
 {
     [SerializeField] Image icon;
     [SerializeField] Text text;
@@ -34,5 +35,12 @@ public class InventoryButton : MonoBehaviour
         icon.sprite = null;
         icon.gameObject.SetActive(false);
         text.gameObject.SetActive(false);
+    }
+
+    public void OnPointerClick(PointerEventData eventData)//wywoływana po kliknięciu na przycisk
+    {
+        ItemContainer inventory = GameManager.instance.inventoryContainer;
+        GameManager.instance.dragDropController.OnClick(inventory.slots[myIndex]);//wywołuje funkcję przekazując kliknięty przycisk
+        transform.parent.GetComponent<InventoryPanel>().Show(); //odświeża ekwipunek
     }
 }
