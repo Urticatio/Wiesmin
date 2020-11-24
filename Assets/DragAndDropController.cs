@@ -28,11 +28,9 @@ public class DragAndDropController : MonoBehaviour
             if (Input.GetMouseButtonDown(0))//jeśli lewy przycisk myszy jest wciśnięty
             {
                 if (EventSystem.current.IsPointerOverGameObject() == false)//jeśli kursor nie jest nad aktualnym obiektem EventSystem
-                {
+                {                    
                     Vector3 worldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);//konwertuje pozycję myszy na pozycję na mapie
-                    worldPosition.z = 0;//żeby się przypadkiem nie pojawiło za mapą
-                    if (ItemSpawnManager.instance == null) { Debug.Log("Nie przypisała się statyczna instancja"); }
-                    
+                    worldPosition.z = 0;//żeby się przypadkiem nie pojawiło za mapą                 
                     ItemSpawnManager.instance.SpawnItem(//upuszcza w tym miejscu przedmiot
                         worldPosition,
                         itemSlot.item,

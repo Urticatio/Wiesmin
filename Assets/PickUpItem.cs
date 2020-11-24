@@ -22,7 +22,7 @@ public class PickUpItem : MonoBehaviour
         this.item = item;
         this.count = count;
         SpriteRenderer renderer = GetComponent<SpriteRenderer>();
-        renderer.sprite = item.icon;
+        renderer.sprite = item.icon;//zmienia ikonę obiektu
     }
 
     private void Update() //wywoływana w każdej klatce gry

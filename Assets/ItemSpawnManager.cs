@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Data/Item spawn manager")]
-public class ItemSpawnManager : ScriptableObject
+public class ItemSpawnManager : MonoBehaviour
 {
     public static ItemSpawnManager instance;//statyczne
 
@@ -15,7 +14,7 @@ public class ItemSpawnManager : ScriptableObject
     [SerializeField] GameObject pickUpItemPrefab;
     public void SpawnItem(Vector3 position, Item item, int count)
     {
-        GameObject o = Instantiate(pickUpItemPrefab, position, Quaternion.identity);
+        GameObject o = Instantiate(pickUpItemPrefab, position, Quaternion.identity); //tworzy obiekt
         o.GetComponent<PickUpItem>().Set(item, count);
     }
 }
