@@ -5,6 +5,7 @@ using UnityEngine;
 public class InventoryController : MonoBehaviour
 {
     [SerializeField] GameObject panel; //referencja do panelu ekwipunku
+    [SerializeField] GameObject toolbarPanel;
 
     private void Start()
     {
@@ -16,6 +17,7 @@ public class InventoryController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.I))//po wciśnięciu 'i'
         {
             panel.SetActive(!panel.activeInHierarchy);//panel zmienia swój status aktywności (dlatego zaprzeczamy stanowi obecnemu)
+            toolbarPanel.SetActive(!toolbarPanel.activeInHierarchy); // update toolbar
         }
     }
 

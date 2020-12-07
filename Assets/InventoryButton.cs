@@ -8,6 +8,7 @@ public class InventoryButton : MonoBehaviour, IPointerClickHandler //kliknięcie
 {
     [SerializeField] Image icon;
     [SerializeField] Text text;
+    [SerializeField] Image highlight;
 
     int myIndex;
     public void SetIndex(int index)
@@ -39,8 +40,17 @@ public class InventoryButton : MonoBehaviour, IPointerClickHandler //kliknięcie
 
     public void OnPointerClick(PointerEventData eventData)//wywoływana po kliknięciu na przycisk
     {
+        ItemPanel itemPanel = transform.parent.GetComponent<ItemPanel>();
+        itemPanel.OnClick(myIndex);
+        /*old version
         ItemContainer inventory = GameManager.instance.inventoryContainer;
         GameManager.instance.dragDropController.OnClick(inventory.slots[myIndex]);//wywołuje funkcję przekazując kliknięty przycisk
         transform.parent.GetComponent<InventoryPanel>().Show(); //odświeża ekwipunek
+        */
+    }
+
+    public void Highlight(bool b)//selecting items from toolbar
+    {
+        highlight.gameObject.SetActive(b);
     }
 }

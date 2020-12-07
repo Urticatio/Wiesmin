@@ -2,6 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+public class InventoryPanel : ItemPanel
+{
+    public override void OnClick(int id)
+    {
+        GameManager.instance.dragAndDropController.OnClick(inventory.slots[id]);
+        Show();
+    }
+}
+/* old version
 public class InventoryPanel : MonoBehaviour
 {
     [SerializeField] ItemContainer inventory; //referencja do kontenera
@@ -18,7 +28,7 @@ public class InventoryPanel : MonoBehaviour
     }
     private void SetIndex()
     {
-        for(int i=0; i < inventory.slots.Count; i++)
+        for(int i=0; i < inventory.slots.Count && i < buttons.Count; i++)
         {
             buttons[i].SetIndex(i);
         }
@@ -26,7 +36,7 @@ public class InventoryPanel : MonoBehaviour
 
     public void Show() //pokazuje te sloty, w których coś jest
     {
-        for(int i=0; i< inventory.slots.Count; i++)
+        for(int i=0; i< inventory.slots.Count && i < buttons.Count; i++)
         {
             if(inventory.slots[i].item == null)//jeśli nic nie ma w tym polu, to je czyści
             {
@@ -39,3 +49,4 @@ public class InventoryPanel : MonoBehaviour
         }
     }
 }
+*/
