@@ -1735,7 +1735,7 @@ TextureImporter:
     second: terrain_atlas_575
   - first:
       213: 6636335095021119619
-    second: terrain_atlas_576
+    second: plowable_ground
   - first:
       213: -2649577172971820671
     second: terrain_atlas_577
@@ -12574,7 +12574,7 @@ TextureImporter:
     second: terrain_atlas_575
   - first:
       213: -7911738911150414145
-    second: terrain_atlas_576
+    second: plowable_ground
   - first:
       213: 6583523454126610906
     second: terrain_atlas_577
@@ -26073,7 +26073,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: terrain_atlas_576
+      name: plowable_ground
       rect:
         serializedVersion: 2
         x: 192
