@@ -8,7 +8,6 @@ public class PickUpItem : MonoBehaviour
     [SerializeField] float speed = 0.05f; //szybkość "wciągania" przedmiotu
     [SerializeField] float pickUpDistance = 1.5f; // jak bardzo trzeba się zbliżyć do przedmiotu
     [SerializeField] float ttl = 10f; //time to leave, po jakim czasie niezebrany obiekt znika
-
     public Item item;
     public int count = 1;
 
@@ -26,11 +25,7 @@ public class PickUpItem : MonoBehaviour
     }
 
     private void Update() //wywoływana w każdej klatce gry
-    {
-        ttl -= Time.deltaTime;
-        if (ttl < 0) { Destroy(gameObject); }//gdy minie czas ttl
-
-
+    { 
         float distance = Vector3.Distance(transform.position, player.position); //odległość przedmiotu od postaci
         if(distance > pickUpDistance) //jeśli jest za daleko od przedmiotu
         {
@@ -42,6 +37,14 @@ public class PickUpItem : MonoBehaviour
             speed);//z takim krokiem (deltaTime to czas klatki gry)
         if(distance < 0.1f)
         {
+            if (GameManager.instance.inventoryContainer != null)
+            {
+                GameManager.instance.inventoryContainer.Add(item, count);
+            }
+            else
+            {
+                Debug.LogWarning("No inventory container in game manager!");
+            }
             Destroy(gameObject);
         }
 

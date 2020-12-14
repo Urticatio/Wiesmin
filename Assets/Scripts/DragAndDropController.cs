@@ -28,7 +28,7 @@ public class DragAndDropController : MonoBehaviour
             if (Input.GetMouseButtonDown(0))//jeśli lewy przycisk myszy jest wciśnięty
             {
                 if (EventSystem.current.IsPointerOverGameObject() == false)//jeśli kursor nie jest nad aktualnym obiektem EventSystem
-                {                    
+                {
                     Vector3 worldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);//konwertuje pozycję myszy na pozycję na mapie
                     worldPosition.z = 0;//żeby się przypadkiem nie pojawiło za mapą                 
                     ItemSpawnManager.instance.SpawnItem(//upuszcza w tym miejscu przedmiot
@@ -70,7 +70,7 @@ public class DragAndDropController : MonoBehaviour
         }
         else//jeśli jest przeciągane
         {
-            dragItemIcon.SetActive(true); //aktywuje się obrazek (podążający za myszą)
+            dragItemIcon.SetActive(true); //aktywuje się obrazek
             iconImage.sprite = itemSlot.item.icon;//obrazek jest taki jak ikona przeciąganego przedmiotu
         }
     }

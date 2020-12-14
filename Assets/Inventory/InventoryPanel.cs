@@ -5,13 +5,16 @@ using UnityEngine;
 
 public class InventoryPanel : ItemPanel
 {
+    [SerializeField] ItemContainer inventory; //referencja do kontenera
+    [SerializeField] List<InventoryButton> buttons; //referencja do przycisków
     public override void OnClick(int id)
     {
         GameManager.instance.dragAndDropController.OnClick(inventory.slots[id]);
         Show();
     }
 }
-/* old version
+// old version
+/*
 public class InventoryPanel : MonoBehaviour
 {
     [SerializeField] ItemContainer inventory; //referencja do kontenera
@@ -48,5 +51,4 @@ public class InventoryPanel : MonoBehaviour
             }
         }
     }
-}
-*/
+}*/
