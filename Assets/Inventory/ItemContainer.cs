@@ -61,5 +61,7 @@ public class ItemContainer : ScriptableObject
                 itemSlot.item = item;
             }
         }
+        GameManager.instance.toolbarPanel.SetActive(false);
+        GameManager.instance.toolbarPanel.SetActive(true);
     }
 }
