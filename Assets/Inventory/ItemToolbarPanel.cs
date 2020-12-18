@@ -12,7 +12,7 @@ public class ItemToolbarPanel : ItemPanel
         toolbarController.onChange += Highlight;
         Highlight(0);
     }
-    public override void OnClick(int id)
+    public override void OnClick(int id, ItemContainer container)
     {
         toolbarController.Set(id);
         Highlight(id);

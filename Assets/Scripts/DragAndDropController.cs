@@ -7,16 +7,19 @@ using UnityEngine.UI;
 
 public class DragAndDropController : MonoBehaviour
 {
+    [SerializeField] GameObject shopPanel;
     [SerializeField] ItemSlot itemSlot; //"przechowywany" item
     [SerializeField] GameObject dragItemIcon; //ikona przeciąganego itemka
     RectTransform iconTransform; //przechowuje pozycje itp. ikonki
-    Image iconImage; 
+    Image iconImage;
+    ItemContainer container;
 
     private void Start()
     {
         itemSlot = new ItemSlot();
         iconTransform = dragItemIcon.GetComponent<RectTransform>();
         iconImage = dragItemIcon.GetComponent<Image>();
+        container = GameManager.instance.inventoryContainer;
     }
 
     private void Update()
@@ -24,7 +27,8 @@ public class DragAndDropController : MonoBehaviour
         if(dragItemIcon.activeInHierarchy == true)//jeśli ikona przeciąganego obiektu jest widoczna
         {
             iconTransform.position = Input.mousePosition; //przypisuje pozycję myszy ikonce
-
+            
+            //wyrzucanie przedmiotu
             if (Input.GetMouseButtonDown(0))//jeśli lewy przycisk myszy jest wciśnięty
             {
                 if (EventSystem.current.IsPointerOverGameObject() == false)//jeśli kursor nie jest nad aktualnym obiektem EventSystem
@@ -43,23 +47,26 @@ public class DragAndDropController : MonoBehaviour
         }
     }
 
-    internal void OnClick(ItemSlot itemSlot)//przyjmuje "kliknięty" item
+    internal void OnClick(ItemSlot itemSlot, ItemContainer inventoryContainer)//przyjmuje "kliknięty" item
     {
-        
-        if (this.itemSlot.item == null)//jeśli nic nie ma w aktualnie przechowywanym polu
+        if (!shopPanel.activeInHierarchy)//jeśli nie jesteśmy w sklepie
         {
-            this.itemSlot.Copy(itemSlot); //to kopiuje do niego item
-            itemSlot.Clear();//czyści pole, z którego było przeniesione
+            if (this.itemSlot.item == null)//jeśli nic nie ma w aktualnie przechowywanym polu
+            {
+                this.itemSlot.Copy(itemSlot); //to kopiuje do niego item
+                itemSlot.Clear();//czyści pole, z którego było przeniesione
+            }
+            else//jeśli w "schowku" jest item
+            {
+                Item item = this.itemSlot.item;//przechowuje slot ze "schowka"     
+                int count = this.itemSlot.count;// j.w. c.d.
+
+                this.itemSlot.Copy(itemSlot);//kopiuje do "schowka" kliknięty item
+                itemSlot.Set(item, count, container); //w miejsce klikniętego wstawia ten, który był wcześniej w schowku
+            }
+            UpdateIcon();
         }
-        else//jeśli w "schowku" jest item
-        {
-            Item item = this.itemSlot.item;//przechowuje slot ze "schowka"     
-            int count = this.itemSlot.count;// j.w. c.d.
             
-            this.itemSlot.Copy(itemSlot);//kopiuje do "schowka" kliknięty item
-            itemSlot.Set(item, count); //w miejsce klikniętego wstawia ten, który był wcześniej w schowku
-        }
-        UpdateIcon();
     }
 
     private void UpdateIcon()

@@ -9,8 +9,11 @@ public class InventoryButton : MonoBehaviour, IPointerClickHandler //kliknięcie
     [SerializeField] Image icon;
     [SerializeField] Text text;
     [SerializeField] Image highlight;
+    [SerializeField] ItemContainer container;
 
     int myIndex;
+    //ItemContainer inventoryContainer = GameManager.instance.inventoryContainer;
+
     public void SetIndex(int index)
     {
         myIndex = index;
@@ -40,8 +43,27 @@ public class InventoryButton : MonoBehaviour, IPointerClickHandler //kliknięcie
 
     public void OnPointerClick(PointerEventData eventData)//wywoływana po kliknięciu na przycisk
     {
-        ItemPanel itemPanel = transform.parent.GetComponent<ItemPanel>();
-        itemPanel.OnClick(myIndex);
+        ItemContainer inventory = GameManager.instance.inventoryContainer;
+        ItemContainer shop = GameManager.instance.shopContainer;
+
+        if (container == inventory)
+        {
+            //wywołuje metodę przeciągania
+            ItemPanel itemPanel = transform.parent.GetComponent<ItemPanel>();
+            itemPanel.OnClick(myIndex, inventory);
+
+            //sprzedaży
+            GameManager.instance.shopController.OnClick(inventory.slots[myIndex], inventory);
+        }
+        else if (container == shop)//wywołuje metodę kupowania
+        {
+            GameManager.instance.shopController.OnClick(shop.slots[myIndex], shop);
+        }
+
+        
+        
+        
+
         /*old version
         ItemContainer inventory = GameManager.instance.inventoryContainer;
         GameManager.instance.dragDropController.OnClick(inventory.slots[myIndex]);//wywołuje funkcję przekazując kliknięty przycisk

@@ -5,9 +5,10 @@ using UnityEngine;
 
 public class InventoryPanel : ItemPanel
 {
-    public override void OnClick(int id)
+    public override void OnClick(int id, ItemContainer container)
     {
-        GameManager.instance.dragAndDropController.OnClick(inventory.slots[id]);
+
+        GameManager.instance.dragAndDropController.OnClick(inventory.slots[id], inventory);
         Show();
     }
 }

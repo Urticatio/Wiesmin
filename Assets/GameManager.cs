@@ -13,7 +13,11 @@ public class GameManager : MonoBehaviour
 
     public GameObject player;
     public ItemContainer inventoryContainer;
+    public ItemContainer shopContainer;
     public DragAndDropController dragAndDropController;
+    public ShopController shopController;
     public ItemSpawnManager itemSpawnManager;
     public GameObject toolbarPanel;
+    public GameObject inventoryPanel;
+    public int money;
 }

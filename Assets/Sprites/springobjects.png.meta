@@ -8,6 +8,9 @@ TextureImporter:
   - first:
       213: 2342218983789471442
     second: springobjects_1
+  - first:
+      213: -4916341779507834599
+    second: money
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -113,7 +116,7 @@ TextureImporter:
         width: 13
         height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -134,7 +137,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -142,6 +145,27 @@ TextureImporter:
       bones: []
       spriteID: 2d6a2f291cb318020800000000000000
       internalID: 2342218983789471442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: money
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 159
+        width: 15
+        height: 15
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 911160e0335a5cbb0800000000000000
+      internalID: -4916341779507834599
       vertices: []
       indices: 
       edges: []
