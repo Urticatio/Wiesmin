@@ -8,7 +8,7 @@ public class ShopController : MonoBehaviour
 {
     [SerializeField] GameObject shopPanel;
     [SerializeField] ItemSlot itemSlot; //"przechowywany" item -- sprzedawany lub kupowany
-    
+    [SerializeField] Text moneyTextField;
 
     private void Start()
     {
@@ -24,20 +24,20 @@ public class ShopController : MonoBehaviour
     {
         ItemContainer shop = GameManager.instance.shopContainer;
         ItemContainer inventory = GameManager.instance.inventoryContainer;
-        int money = GameManager.instance.money;
+
         if (shopPanel.activeInHierarchy && container==shop)//jeśli sklep jest otwarty i item kliknięty jest w panelu sklepu
         {
             //zakup
             
-            if((money-itemSlot.item.price) >= 0)//jeśli starcza nam pieniędzy
+            if((GameManager.instance.money - itemSlot.item.price) >= 0)//jeśli starcza nam pieniędzy
             {
-                money -= itemSlot.item.price;
+                GameManager.instance.money -= itemSlot.item.price;
                 inventory.Add(itemSlot.item, 1, inventory);//dodaje do ekwipunku przedmiot
                 UpdateInventoryAndMoney();
             }
             else
             {
-                //MessageBox.Show();
+                UnityEditor.EditorUtility.DisplayDialog(" ", "Nie stać cię na to!", "Ok", "No trudno");
             }
 
             
@@ -45,11 +45,12 @@ public class ShopController : MonoBehaviour
         else if (shopPanel.activeInHierarchy && container == inventory)//jeśli sklep jest otwarty i item kliknięty jest w panelu ekwipunku
         {
             //sprzedaż
-            money += itemSlot.item.price;
+            GameManager.instance.money += itemSlot.item.price;
             inventory.Remove(itemSlot);
             UpdateInventoryAndMoney();
         }
 
+        
     }
 
     private void UpdateInventoryAndMoney()
@@ -57,5 +58,6 @@ public class ShopController : MonoBehaviour
         GameManager.instance.inventoryPanel.SetActive(false);
         GameManager.instance.inventoryPanel.SetActive(true);
         GameManager.instance.toolbarPanel.SetActive(false); //wyłącza toolbar
+        moneyTextField.text = GameManager.instance.money.ToString();
     }
 }

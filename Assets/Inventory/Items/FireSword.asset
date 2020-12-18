@@ -15,3 +15,4 @@ MonoBehaviour:
   Name: FireSword
   stackable: 0
   icon: {fileID: 21300000, guid: 52d40e3664e3f2440bffe7fb673340bb, type: 3}
+  price: 500
