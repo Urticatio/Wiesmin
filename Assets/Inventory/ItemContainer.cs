@@ -61,6 +61,7 @@ public class ItemContainer : ScriptableObject
                 itemSlot.item = item;
             }
         }
+        //"odświeżenie" toolbara
         GameManager.instance.toolbarPanel.SetActive(false);
         GameManager.instance.toolbarPanel.SetActive(true);
     }

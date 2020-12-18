@@ -30,11 +30,11 @@ MonoBehaviour:
   - item: {fileID: 11400000, guid: ff7789ef8cb3bff4aa9c67a6b3adb238, type: 2}
     count: 11
   - item: {fileID: 11400000, guid: 8c8ec872c5b62c04a8671695e3e5eab6, type: 2}
-    count: 42
+    count: 44
   - item: {fileID: 0}
     count: 0
-  - item: {fileID: 11400000, guid: 29c470af17b69dc43b0b3dccb9cb3108, type: 2}
-    count: 3
+  - item: {fileID: 0}
+    count: 0
   - item: {fileID: 0}
     count: 0
   - item: {fileID: 0}
