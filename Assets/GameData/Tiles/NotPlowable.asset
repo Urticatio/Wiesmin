@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: NotPlowable
   m_EditorClassIdentifier: 
   tiles:
-  - {fileID: 11400000, guid: f032256e4001ff34c8fbe1d4380c7b83, type: 2}
+  - {fileID: 11400000, guid: 3a8c5289db46dcb449bf98eedf3ecc27, type: 2}
   plowable: 0

@@ -8,13 +8,13 @@ public class ToolsCharacterController : MonoBehaviour
 {
     CharacterController2D character;
     Rigidbody2D rgdb2d;
+    ToolbarController toolbarController;
     [SerializeField] float offsetDistance = 1f;
     [SerializeField] float sizeOfInteractableArea = 1.2f;
     [SerializeField] MarkerManager markerManager;
     [SerializeField] TileMapReadController tileMapReadController;
     [SerializeField] float maxDistance = 1.5f;
-    [SerializeField] CropsManager cropsManager;
-    //[SerializeField] TileData plowableTiles;TODO
+
 
     Vector3Int selectedTilePosition;
     bool selectable;
@@ -22,6 +22,7 @@ public class ToolsCharacterController : MonoBehaviour
     {
         rgdb2d = GetComponent<Rigidbody2D>();
         character = GetComponent<CharacterController2D>();
+        toolbarController = GetComponent<ToolbarController>();
     }
 
     private void Update()
@@ -56,36 +57,41 @@ public class ToolsCharacterController : MonoBehaviour
     private bool UseToolWorld()//interact with objects (with colider2d)
     {
         Vector2 position = rgdb2d.position + character.lastMotionVector * offsetDistance;
+        Item item = toolbarController.GetItem;
+        if(!item) { return false; }
+        if (!item.onAction) { return false; }
 
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(position, sizeOfInteractableArea);
+        //animator.SetTrigger("act");
+        bool complete = item.onAction.OnApply(position);
 
-        return false;//TODO, fast fix
-        foreach (Collider2D c in colliders)
+        if (complete)
         {
-            
-            /*
-            ToolHit hit = c.GetComponent<ToolHit>();
-            if (hit != null)
+            if (item.onItemUsed != null)
             {
-
-                hit.Hit();
-                return false;
+                item.onItemUsed.OnItemUsed(item, GameManager.instance.inventoryContainer);
             }
-            */
         }
+
+        return complete;
     }
     private void UseToolGrid()// interact with tiles
     {
         if(selectable)
         {
-            //TileBase tileBase = tileMapReadController.GetTileBase(selectedTilePosition);
-            //TileData tileData = tileMapReadController.GetTileData(tileBase);
-            //if(tileData != plowableTiles) { return; }TODO
-            if (cropsManager.Check(selectedTilePosition))
+            Item item = toolbarController.GetItem;
+            if (!item) { return; }
+            if (!item.onTileMapAction) { return; }
+
+            //animator.SetTrigger("act");
+            bool complete = item.onTileMapAction.OnApplyToTileMap(selectedTilePosition, tileMapReadController);
+
+            if(complete)
             {
-                cropsManager.Seed(selectedTilePosition);
+                if(item.onItemUsed != null)
+                {
+                    item.onItemUsed.OnItemUsed(item, GameManager.instance.inventoryContainer);
+                }
             }
-            cropsManager.Plow(selectedTilePosition);
         }
     }
 }

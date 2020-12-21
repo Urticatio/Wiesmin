@@ -50,6 +50,9 @@ TextureImporter:
   - first:
       213: -5190669112027528991
     second: objects_terrain_atlas_15
+  - first:
+      213: -1004938184354201907
+    second: unplowable
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -470,7 +473,7 @@ TextureImporter:
         width: 64
         height: 149
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -478,6 +481,27 @@ TextureImporter:
       bones: []
       spriteID: 1e0c107a1f907f7b0800000000000000
       internalID: -5190669112027528991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: unplowable
+      rect:
+        serializedVersion: 2
+        x: 793
+        y: 84
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dce7754bb0ebd02f0800000000000000
+      internalID: -1004938184354201907
       vertices: []
       indices: 
       edges: []

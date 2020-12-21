@@ -69,7 +69,7 @@ public class ItemContainer : ScriptableObject
         GameManager.instance.toolbarPanel.SetActive(false);
         GameManager.instance.toolbarPanel.SetActive(true);
     }
-
+    
     public void Remove(ItemSlot itemSlot)//metoda do usuwania itemków z ekwipunku
     {
         if (itemSlot.item.stackable == true) //jeśli da się stackować
@@ -85,4 +85,30 @@ public class ItemContainer : ScriptableObject
         GameManager.instance.toolbarPanel.SetActive(false);
         GameManager.instance.toolbarPanel.SetActive(true);
     }
+    
+    public void Remove(Item itemToRemove, int count = 1)//metoda do usuwania itemków z ekwipunku - ver Magdy
+    {
+        if (itemToRemove.stackable) //jeśli da się stackować
+        {
+            ItemSlot itemSlot = slots.Find(x => x.item == itemToRemove);
+            if (itemSlot == null) { return; }
+
+            itemSlot.count -= count;
+            if (itemSlot.count <= 0) itemSlot.Clear(); //jeśli usunął ostatnią sztukę
+        }
+        else
+        {
+            while(count > 0)
+            {
+                count -= 1;
+                ItemSlot itemSlot = slots.Find(x => x.item == itemToRemove);
+                if (itemSlot == null) { return; }
+
+                itemSlot.Clear();
+            }
+        }
+        GameManager.instance.toolbarPanel.SetActive(false);
+        GameManager.instance.toolbarPanel.SetActive(true);
+    }
+
 }

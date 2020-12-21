@@ -8,6 +8,12 @@ public class ToolbarController : MonoBehaviour
     [SerializeField] int toolbarSize = 6;
     int selectedTool;
     public Action<int> onChange; //delegate
+    public Item GetItem
+    {
+        get{
+            return GameManager.instance.inventoryContainer.slots[selectedTool].item;
+        }
+    }
     private void Update()
     {
         float delta = Input.mouseScrollDelta.y;
