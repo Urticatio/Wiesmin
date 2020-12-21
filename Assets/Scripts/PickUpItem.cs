@@ -40,6 +40,7 @@ public class PickUpItem : MonoBehaviour
             if (GameManager.instance.inventoryContainer != null)
             {
                 GameManager.instance.inventoryContainer.Add(item, count, GameManager.instance.inventoryContainer);
+                Debug.Log("Liczba przedmiotów zebranych: " + count);
             }
             else
             {

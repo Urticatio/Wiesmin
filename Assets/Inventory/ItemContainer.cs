@@ -63,6 +63,7 @@ public class ItemContainer : ScriptableObject
             if (itemSlot != null)//jeśli jest jakieś puste miejsce
             {
                 itemSlot.item = item;
+                itemSlot.count = count;
             }
         }
         //"odświeżenie" toolbara
