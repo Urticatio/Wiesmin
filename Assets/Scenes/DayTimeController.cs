@@ -28,7 +28,10 @@ public class DayTimeController : MonoBehaviour
     {
         get { return time % 3600f / 60f; }
     }
-
+    public void Sleep()
+    {
+        NextDay();
+    }
     private void Update()
     {
         time += Time.deltaTime * timeScale;

@@ -5,9 +5,10 @@ using UnityEngine;
 
 public class BedInteract : Interactable
 {
-
+    [SerializeField] DayTimeController dayTimeController;
     public override void Interact(Character character)
     {
+        dayTimeController.Sleep();
         System.Diagnostics.Debug.WriteLine("interacting with bed");
     }
 }
