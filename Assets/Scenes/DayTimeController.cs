@@ -29,10 +29,10 @@ public class DayTimeController : MonoBehaviour
     }
 
     //
-    public delegate void EndOfDay();
-    public static event EndOfDay OnEndOfDay;
+    //public delegate void EndOfDay();
+    //public static event EndOfDay OnEndOfDay;
     //
-    public void Sleep()
+public void Sleep()
     {
         NextDay();
     }
@@ -55,6 +55,6 @@ public class DayTimeController : MonoBehaviour
     {
         time = 0;
         days += 1;
-        if(OnEndOfDay != null) OnEndOfDay();
+        //if(OnEndOfDay != null) OnEndOfDay();
     }
 }

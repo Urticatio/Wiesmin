@@ -15,10 +15,6 @@ public class CropsManager : MonoBehaviour
     [SerializeField] TileBase growing;
     [SerializeField] TileBase grown;
     [SerializeField] Tilemap targetTilemap;
-    //
-    //[SerializeField] DayTimeController dayTimeController;
-    //DayTimeController.OnEndOfDay += Grow;
-    //
 
     Dictionary<Vector2Int, Crops> crops;
 

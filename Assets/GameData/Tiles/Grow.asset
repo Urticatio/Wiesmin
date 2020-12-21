@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a96300c1cefd614ea6515b53b1e4970, type: 3}
   m_Name: Grow
   m_EditorClassIdentifier: 
-  Name: 
+  Name: Grow
   stackable: 0
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 3b0102f0a89fdb2459c717ea827f2149, type: 3}
   price: 0
   onAction: {fileID: 0}
-  onTileMapAction: {fileID: 0}
-  onItemUsed: {fileID: 0}
+  onTileMapAction: {fileID: 11400000, guid: 278469ff33065384b9d570f0dd87b9b8, type: 2}
+  onItemUsed: {fileID: 11400000, guid: 278469ff33065384b9d570f0dd87b9b8, type: 2}
