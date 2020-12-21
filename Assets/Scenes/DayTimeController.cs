@@ -19,7 +19,6 @@ public class DayTimeController : MonoBehaviour
     [SerializeField] Light2D globalLight;
     private int days;
 
-
     float Hours
     {
         get { return time / 3600f;  }
@@ -28,6 +27,11 @@ public class DayTimeController : MonoBehaviour
     {
         get { return time % 3600f / 60f; }
     }
+
+    //
+    public delegate void EndOfDay();
+    public static event EndOfDay OnEndOfDay;
+    //
     public void Sleep()
     {
         NextDay();
@@ -51,5 +55,6 @@ public class DayTimeController : MonoBehaviour
     {
         time = 0;
         days += 1;
+        if(OnEndOfDay != null) OnEndOfDay();
     }
 }

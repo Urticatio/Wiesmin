@@ -12,7 +12,13 @@ public class CropsManager : MonoBehaviour
 {
     [SerializeField] TileBase seeded;
     [SerializeField] TileBase plowed;
+    [SerializeField] TileBase growing;
+    [SerializeField] TileBase grown;
     [SerializeField] Tilemap targetTilemap;
+    //
+    //[SerializeField] DayTimeController dayTimeController;
+    //DayTimeController.OnEndOfDay += Grow;
+    //
 
     Dictionary<Vector2Int, Crops> crops;
 
@@ -46,5 +52,21 @@ public class CropsManager : MonoBehaviour
 
         targetTilemap.SetTile(position, plowed);
     }
+    public void Grow(Vector3Int position)
+    {
+        TileBase s = (TileBase)targetTilemap.GetTile(position);
+        if(s == seeded)
+        targetTilemap.SetTile(position, growing);
 
+        if (s == grown)
+            targetTilemap.SetTile(position, grown);
+
+    }
+    public void GrowToMaturePlant(Vector3Int position)
+    {
+        TileBase s = (TileBase)targetTilemap.GetTile(position);
+        if (s == grown)
+            targetTilemap.SetTile(position, grown);
+
+    }
 }
