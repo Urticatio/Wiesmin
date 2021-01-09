@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-
+//sprzedaż i zakup w sklepie
 public class ShopController : MonoBehaviour
 {
     [SerializeField] GameObject shopPanel;
     [SerializeField] ItemSlot itemSlot; //"przechowywany" item -- sprzedawany lub kupowany
     [SerializeField] Text moneyTextField;
+    
 
     private void Start()
     {

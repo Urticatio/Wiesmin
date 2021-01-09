@@ -1,17 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//włączanie i wyłączanie ekwipunku i sklepu z klawiatury
 public class InventoryController : MonoBehaviour
 {
     [SerializeField] GameObject panel; //referencja do panelu ekwipunku
     [SerializeField] GameObject toolbarPanel;
     [SerializeField] GameObject shopPanel;
+    [SerializeField] GameObject priceTextField;
 
     private void Start()
     {
         panel.SetActive(false);//na starcie wyłącza ekwipunek
         shopPanel.SetActive(false);
+        priceTextField.SetActive(false);
     }
 
     private void Update()
@@ -22,6 +24,7 @@ public class InventoryController : MonoBehaviour
             {
                 panel.SetActive(!panel.activeInHierarchy);//panel zmienia swój status aktywności (dlatego zaprzeczamy stanowi obecnemu)
                 toolbarPanel.SetActive(!toolbarPanel.activeInHierarchy); // update toolbar
+                priceTextField.SetActive(!priceTextField.activeInHierarchy);
             }
             
         }
@@ -32,6 +35,7 @@ public class InventoryController : MonoBehaviour
                 panel.SetActive(!panel.activeInHierarchy);//włączmy ekwipunek i sklep
                 shopPanel.SetActive(!shopPanel.activeInHierarchy);
                 toolbarPanel.SetActive(!toolbarPanel.activeInHierarchy); // wyłącza toolbar
+                priceTextField.SetActive(!priceTextField.activeInHierarchy);
             }
         }
     }

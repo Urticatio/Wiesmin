@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
+//obsługuje klikanie (przeciąganie) przedmiotów w ekwipunku
 public class DragAndDropController : MonoBehaviour
 {
     [SerializeField] GameObject shopPanel;
