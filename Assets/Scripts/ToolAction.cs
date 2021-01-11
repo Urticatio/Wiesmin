@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ToolAction : ScriptableObject
 {
-
     public virtual bool OnApply(Vector2 worldPoint)
     {
         Debug.LogWarning("OnApplay is KeyNotFoundException impremented");

@@ -18,8 +18,11 @@ public class GameManager : MonoBehaviour
     public DragAndDropController dragAndDropController;
     public ShopController shopController;
     public ItemSpawnManager itemSpawnManager;
+    public BarController barController;
     public GameObject toolbarPanel;
     public GameObject inventoryPanel;
+    public Bar staminaBar;
+    public Bar healthBar;
     public int money;
     public Text priceTextField; //pole tekstowe ceny
 }

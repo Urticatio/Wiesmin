@@ -26,6 +26,7 @@ public class ResourceNode : ToolHit
 
         }
         Destroy(gameObject);
+        Debug.Log("hit");
     }
 
     public override bool CanBeHit(List<ResourceNodeType> canBeHit)

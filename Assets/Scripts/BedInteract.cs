@@ -10,5 +10,6 @@ public class BedInteract : Interactable
     {
         dayTimeController.Sleep();
         System.Diagnostics.Debug.WriteLine("interacting with bed");
+        GameManager.instance.barController.Regenerate();
     }
 }
