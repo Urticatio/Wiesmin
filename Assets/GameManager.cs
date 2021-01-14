@@ -25,4 +25,5 @@ public class GameManager : MonoBehaviour
     public Bar healthBar;
     public int money;
     public Text priceTextField; //pole tekstowe ceny
+    public DayTimeController timeController;
 }

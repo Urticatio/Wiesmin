@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class DayTimeController : MonoBehaviour
 {
     const float secoundsInDay = 86400f;
+    const float phaseLength = 900f;// every 15 min in game wake up all agents
 
     [SerializeField] Color nightLightColor;
     [SerializeField] AnimationCurve nightTimeCurve;
@@ -14,11 +15,30 @@ public class DayTimeController : MonoBehaviour
 
     float time;
     [SerializeField] float timeScale = 60f;
-
+    [SerializeField] float startAtTime = 28800f;//sec
     [SerializeField] Text text;
     [SerializeField] Light2D globalLight;
     private int days;
 
+    List<TimeAgent> agents;
+
+    private void Awake()
+    {
+        agents = new List<TimeAgent>();
+    }
+    private void Start()
+    {
+        time = startAtTime;
+    }
+
+    public void Subscribe(TimeAgent timeAgent)
+    {
+        agents.Add(timeAgent);
+    }
+    public void Unsubscribe(TimeAgent timeAgent)
+    {
+        agents.Remove(timeAgent);
+    }
     float Hours
     {
         get { return time / 3600f;  }
@@ -40,18 +60,43 @@ public class DayTimeController : MonoBehaviour
     private void Update()
     {
         time += Time.deltaTime * timeScale;
-        int hh = (int)Hours;
-        int mm = (int)Minutes;
-        text.text = "Day " + days.ToString() + ", Time: " + hh.ToString("00") + ":" + "00";
-        float v = nightTimeCurve.Evaluate(Hours);
-        Color c = Color.Lerp(dayLightColor, nightLightColor, v);
-        globalLight.color = c;
+
+        TimeValueCalculation();
+        DayLight();
+        
         if(time > secoundsInDay)
         {
             NextDay();
         }
+        TimeAgents();    
     }
-
+    private void TimeValueCalculation()
+    {   
+        int hh = (int)Hours;
+        int mm = (int)Minutes;
+        text.text = "Day " + days.ToString() + ", Time: " + hh.ToString("00") + ":" + "00";
+    }
+    private void DayLight()
+    {
+        float v = nightTimeCurve.Evaluate(Hours);
+        Color c = Color.Lerp(dayLightColor, nightLightColor, v);
+        globalLight.color = c;
+    }
+    int oldPhase = 0;
+    private void TimeAgents()
+    {
+        int currentPhase = (int)(time / phaseLength);
+        Debug.Log(currentPhase);
+        if(oldPhase != currentPhase)
+        {
+            oldPhase = currentPhase;
+            foreach (var agent in agents)
+            {
+                agent.Invoke();
+            }
+        }
+       
+    }
     private void NextDay()
     {
         time = 0;

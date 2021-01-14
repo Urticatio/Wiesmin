@@ -9,7 +9,7 @@ public class ToolAction : ScriptableObject
         Debug.LogWarning("OnApplay is KeyNotFoundException impremented");
         return true;
     }
-    public virtual bool OnApplyToTileMap(Vector3Int gridPosition, TileMapReadController tileMapReadController)
+    public virtual bool OnApplyToTileMap(Vector3Int gridPosition, TileMapReadController tileMapReadController, Item item)
     {
         Debug.LogWarning("OnApplyToTileMap is KeyNotFoundException impremented");
         return true;
