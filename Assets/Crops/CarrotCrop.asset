@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f131d973f77206e438792071df60b437, type: 3}
   m_Name: CarrotCrop
   m_EditorClassIdentifier: 
-  timeToGrow: 13
+  timeToGrow: 3
   yield: {fileID: 11400000, guid: 23c133422466e154aa6b96cda57de36f, type: 2}
   count: 1
   dropCount: 3
@@ -20,4 +20,4 @@ MonoBehaviour:
   - {fileID: -8583430363459650680, guid: 05f1cde53cc19534c84aab31196f4b4c, type: 3}
   - {fileID: 5209960740399434113, guid: 05f1cde53cc19534c84aab31196f4b4c, type: 3}
   - {fileID: 2589243936869935493, guid: 05f1cde53cc19534c84aab31196f4b4c, type: 3}
-  growStageTime: 01000000020000000d000000
+  growStageTime: 010000000200000003000000

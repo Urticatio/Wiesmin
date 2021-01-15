@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     {
         instance = this;
         ItemSpawnManager.instance = itemSpawnManager;
+        signPanel.SetActive(false);
     }
 
     public GameObject player;
@@ -21,6 +22,7 @@ public class GameManager : MonoBehaviour
     public BarController barController;
     public GameObject toolbarPanel;
     public GameObject inventoryPanel;
+    public GameObject signPanel;
     public Bar staminaBar;
     public Bar healthBar;
     public int money;

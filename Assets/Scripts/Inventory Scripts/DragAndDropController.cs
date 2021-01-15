@@ -39,7 +39,8 @@ public class DragAndDropController : MonoBehaviour
                     ItemSpawnManager.instance.SpawnItem(//upuszcza w tym miejscu przedmiot
                         worldPosition,
                         itemSlot.item,
-                        itemSlot.count);
+                        itemSlot.count,
+                        false);
                     itemSlot.Clear();//czyści pole po wyrzuceniu
                     dragItemIcon.SetActive(false);//chowa ikonę po upuszczeniu przedmiotu
                 }

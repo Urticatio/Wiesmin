@@ -126,7 +126,7 @@ public class CropsManager : TimeAgent
                 position2.x += (int)(scattering_level * UnityEngine.Random.value - scattering_level / 2);
                 position2.y += (int)(scattering_level * UnityEngine.Random.value - scattering_level / 2);
 
-                ItemSpawnManager.instance.SpawnItem(targetTilemap.CellToWorld(position2), cropTile.crop.yield, cropTile.crop.count);
+                ItemSpawnManager.instance.SpawnItem(targetTilemap.CellToWorld(position2), cropTile.crop.yield, cropTile.crop.count, true);
             }
             
             
