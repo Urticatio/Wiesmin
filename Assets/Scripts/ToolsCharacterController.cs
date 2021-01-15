@@ -15,6 +15,7 @@ public class ToolsCharacterController : MonoBehaviour
     [SerializeField] TileMapReadController tileMapReadController;
     [SerializeField] float maxDistance = 1.5f;
     [SerializeField] ToolAction onTilePickUp;
+    [SerializeField] ToolAction onTileWatering;
 
     Vector3Int selectedTilePosition;
     bool selectable;
@@ -102,5 +103,10 @@ public class ToolsCharacterController : MonoBehaviour
     {
         if (onTilePickUp == null) { return; }
         onTilePickUp.OnApplyToTileMap(selectedTilePosition, tileMapReadController, null);
+    }
+    private void WaterTile()
+    {
+        if (onTileWatering == null) { return; }
+        onTileWatering.OnApplyToTileMap(selectedTilePosition, tileMapReadController, null);
     }
 }

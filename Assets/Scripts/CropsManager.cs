@@ -10,6 +10,7 @@ public class CropTile//current state of crop
     public int growTimer;
     public int growStage;
     public SpriteRenderer renderer;
+    public bool watered;
     public bool Complete
     {
         get
@@ -30,11 +31,13 @@ public class CropsManager : TimeAgent
 {
     [SerializeField] TileBase seeded;
     [SerializeField] TileBase plowed;
+    [SerializeField] TileBase watered;
     //[SerializeField] TileBase growing;//
     //[SerializeField] TileBase grown;//
     [SerializeField] Tilemap targetTilemap;
+    [SerializeField] Tilemap waterTilemap;
     [SerializeField] GameObject cropsSpritePrefab;
-
+    public float scattering_level;
     Dictionary<Vector2Int, CropTile> crops;
 
     private void Start()
@@ -55,9 +58,13 @@ public class CropsManager : TimeAgent
                 Debug.Log("im done growing");
                 continue;
             }
-            cropTile.growTimer += 1;//TODO check if watered
+            if(cropTile.watered)
+                cropTile.growTimer += 1;
 
-            if(cropTile.growTimer >= cropTile.crop.growStageTime[cropTile.growStage])
+            waterTilemap.ClearAllTiles();
+            cropTile.watered = false;
+
+            if (cropTile.growTimer >= cropTile.crop.growStageTime[cropTile.growStage])
             {
                 cropTile.renderer.gameObject.SetActive(true);
                 cropTile.renderer.sprite = cropTile.crop.sprites[cropTile.growStage];
@@ -88,8 +95,8 @@ public class CropsManager : TimeAgent
     }
     private void CreatePlowedTile(Vector3Int position)
     {
-        CropTile crop = new CropTile();//
-        crops.Add((Vector2Int)position, crop);//
+        CropTile crop = new CropTile();
+        crops.Add((Vector2Int)position, crop);
 
         GameObject go = Instantiate(cropsSpritePrefab);
         go.transform.position = targetTilemap.CellToWorld(position);
@@ -98,6 +105,10 @@ public class CropsManager : TimeAgent
 
         targetTilemap.SetTile(position, plowed);
     }
+    private void CreateWetTile(Vector3Int position)
+    {
+        waterTilemap.SetTile(position, watered);
+    }
     internal void PickUp(Vector3Int gridPosition)
     {
         Vector2Int position = (Vector2Int)gridPosition;
@@ -105,14 +116,34 @@ public class CropsManager : TimeAgent
 
         CropTile cropTile = crops[position];
 
-        if(cropTile.Complete)
+        if (cropTile.Complete)
         {
-            ItemSpawnManager.instance.SpawnItem(targetTilemap.CellToWorld(gridPosition), cropTile.crop.yield, cropTile.crop.count);
+            int dropCount = cropTile.crop.dropCount;
+            while (dropCount > 0)
+            {
+                dropCount -= 1;
+                Vector3Int position2 = gridPosition;
+                position2.x += (int)(scattering_level * UnityEngine.Random.value - scattering_level / 2);
+                position2.y += (int)(scattering_level * UnityEngine.Random.value - scattering_level / 2);
+
+                ItemSpawnManager.instance.SpawnItem(targetTilemap.CellToWorld(position2), cropTile.crop.yield, cropTile.crop.count);
+            }
+            
             
 
             targetTilemap.SetTile(gridPosition, plowed);
             cropTile.Harvested();
         }
+    }
+    public void Water(Vector3Int gridPosition)
+    {
+        Vector2Int position = (Vector2Int)gridPosition;
+        if (crops.ContainsKey(position) == false) { return; }
+
+        CropTile cropTile = crops[position];
+        cropTile.watered = true;
+        GameManager.instance.staminaBar.Subtract(3); //zużywa wytrzymałość
+        CreateWetTile(gridPosition);
     }
     /*
     public void Grow(Vector3Int position)

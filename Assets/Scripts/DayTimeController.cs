@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class DayTimeController : MonoBehaviour
 {
     const float secoundsInDay = 86400f;
-    const float phaseLength = 900f;// every 15 min in game wake up all agents
+    const int phaseLength = 1;// every 15 min in game wake up all agents
 
     [SerializeField] Color nightLightColor;
     [SerializeField] AnimationCurve nightTimeCurve;
@@ -85,7 +85,7 @@ public class DayTimeController : MonoBehaviour
     int oldPhase = 0;
     private void TimeAgents()
     {
-        int currentPhase = (int)(time / phaseLength);
+        int currentPhase = (int)(days / phaseLength);
         Debug.Log(currentPhase);
         if(oldPhase != currentPhase)
         {

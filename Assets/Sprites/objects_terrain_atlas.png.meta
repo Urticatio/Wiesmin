@@ -62,6 +62,18 @@ TextureImporter:
   - first:
       213: 2589243936869935493
     second: crop_stage3
+  - first:
+      213: -766909444190207678
+    second: tomato_stage1
+  - first:
+      213: 7588869137600094100
+    second: tomato_stage2
+  - first:
+      213: 6830662414886327280
+    second: tomato_stage3
+  - first:
+      213: 4729394588712395123
+    second: tomato_stage4
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -574,6 +586,90 @@ TextureImporter:
       bones: []
       spriteID: 58967f564a7dee320800000000000000
       internalID: 2589243936869935493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tomato_stage1
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 218
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 241862c7ce36b55f0800000000000000
+      internalID: -766909444190207678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tomato_stage2
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 186
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49f1499e544115960800000000000000
+      internalID: 7588869137600094100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tomato_stage3
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 128
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f359e3a6436bce50800000000000000
+      internalID: 6830662414886327280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tomato_stage4
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 65
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3716bde225f22a140800000000000000
+      internalID: 4729394588712395123
       vertices: []
       indices: 
       edges: []

@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f131d973f77206e438792071df60b437, type: 3}
+  m_Name: TomatoCrop
+  m_EditorClassIdentifier: 
+  timeToGrow: 17
+  yield: {fileID: 11400000, guid: 29c470af17b69dc43b0b3dccb9cb3108, type: 2}
+  count: 1
+  dropCount: 3
+  sprites:
+  - {fileID: -766909444190207678, guid: 05f1cde53cc19534c84aab31196f4b4c, type: 3}
+  - {fileID: 7588869137600094100, guid: 05f1cde53cc19534c84aab31196f4b4c, type: 3}
+  - {fileID: 6830662414886327280, guid: 05f1cde53cc19534c84aab31196f4b4c, type: 3}
+  - {fileID: 4729394588712395123, guid: 05f1cde53cc19534c84aab31196f4b4c, type: 3}
+  growStageTime: 04000000090000000e00000011000000
