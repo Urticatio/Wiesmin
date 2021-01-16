@@ -12,5 +12,6 @@ public class SignInterract : Interactable
         {
             signPanel.SetActive(!signPanel.activeInHierarchy);//włącza ekwipunek i sklep
         }
+        GameManager.instance.fableController.ChangeSignSpriteToStandard();
     }
 }

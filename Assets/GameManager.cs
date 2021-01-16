@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     public ItemContainer shopContainer;
     public DragAndDropController dragAndDropController;
     public ShopController shopController;
+    public FableController fableController;
     public ItemSpawnManager itemSpawnManager;
     public BarController barController;
     public GameObject toolbarPanel;
