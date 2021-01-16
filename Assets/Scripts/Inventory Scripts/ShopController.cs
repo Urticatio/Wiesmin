@@ -18,7 +18,7 @@ public class ShopController : MonoBehaviour
 
     private void Update()
     {
-       
+
     }
 
     internal void OnClick(ItemSlot itemSlot, ItemContainer container)//przyjmuje "kliknięty" item i ekwipunek z którego pochodzi

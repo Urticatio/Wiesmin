@@ -35,18 +35,23 @@ public class DragAndDropController : MonoBehaviour
                 if (EventSystem.current.IsPointerOverGameObject() == false)//jeśli kursor nie jest nad aktualnym obiektem EventSystem
                 {
                     Vector3 worldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);//konwertuje pozycję myszy na pozycję na mapie
-                    worldPosition.z = 0;//żeby się przypadkiem nie pojawiło za mapą                 
-                    ItemSpawnManager.instance.SpawnItem(//upuszcza w tym miejscu przedmiot
-                        worldPosition,
-                        itemSlot.item,
-                        itemSlot.count,
-                        false);
-                    itemSlot.Clear();//czyści pole po wyrzuceniu
+                    worldPosition.z = 0;//żeby się przypadkiem nie pojawiło za mapą 
+                    Drop(itemSlot, worldPosition); //upuszcza przedmiot
                     dragItemIcon.SetActive(false);//chowa ikonę po upuszczeniu przedmiotu
                 }
             }
             
         }
+    }
+
+    public void Drop(ItemSlot itemSl, Vector3 worldPosition)//upuszcza przedmiot
+    {                 
+        ItemSpawnManager.instance.SpawnItem(//upuszcza w tym miejscu przedmiot
+            worldPosition,
+            itemSl.item,
+            itemSl.count,
+            false);
+        itemSl.Clear();//czyści pole po wyrzuceniu
     }
 
     internal void OnClick(ItemSlot itemSlot, ItemContainer inventoryContainer)//przyjmuje "kliknięty" item

@@ -18,6 +18,11 @@ public class InventoryController : MonoBehaviour
 
     private void Update()
     {
+        if (toolbarPanel.activeInHierarchy == true)
+        {
+            priceTextField.SetActive(false);
+        }
+
         if (Input.GetKeyDown(KeyCode.I))//po wciśnięciu 'i'
         {
             if (!shopPanel.activeInHierarchy) //jeżeli przypadkiem sklep nie jest otwarty
