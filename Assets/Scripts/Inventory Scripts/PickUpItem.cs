@@ -41,6 +41,17 @@ public class PickUpItem : MonoBehaviour
             {
                 GameManager.instance.inventoryContainer.Add(item, count, GameManager.instance.inventoryContainer);
                 Debug.Log("Liczba przedmiotów zebranych: " + count);
+
+                //*************Wykonanie questa 0**************
+                if(item.name == "Carrot")
+                {
+                    FableController fableController = GameManager.instance.fableController;
+                    if (GameManager.instance.fableController.GetCurQuest() == 0)
+                    {
+                        fableController.NextQuest();
+                    }
+                }
+                //*********************************************
             }
             else
             {

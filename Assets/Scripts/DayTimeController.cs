@@ -30,6 +30,24 @@ public class DayTimeController : MonoBehaviour
     {
         time = startAtTime;
     }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.N))//po wciśnięciu 'n' zmienia się dzień -- do użytku pokazowo-programistycznego
+        {
+            Sleep();
+        }
+
+        time += Time.deltaTime * timeScale;
+
+        TimeValueCalculation();
+        DayLight();
+
+        if (time > secoundsInDay)
+        {
+            NextDay();
+        }
+        TimeAgents();
+    }   
 
     public void Subscribe(TimeAgent timeAgent)
     {
@@ -57,19 +75,7 @@ public class DayTimeController : MonoBehaviour
         NextDay();
         time += 3600*5; //spanie do 5 rano
     }
-    private void Update()
-    {
-        time += Time.deltaTime * timeScale;
-
-        TimeValueCalculation();
-        DayLight();
-        
-        if(time > secoundsInDay)
-        {
-            NextDay();
-        }
-        TimeAgents();    
-    }
+    
     private void TimeValueCalculation()
     {   
         int hh = (int)Hours;
