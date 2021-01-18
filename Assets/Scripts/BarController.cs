@@ -28,7 +28,7 @@ public class BarController : MonoBehaviour
         if (healthBar.getBarState() <= 0)
         {
             healthBar.SetSize(1);
-            if(staminaBar.getBarState()==0) UnityEditor.EditorUtility.DisplayDialog(" ", "Umarłeś z przemęczenia... Następnym razem pamiętaj o odpowiednim odpoczynku.", "Będę pamiętał.", "Jeszcze tyle do zrobienia...");
+            if (staminaBar.getBarState() == 0) GameManager.instance.eventController.ShowEvent("Umarłeś z przemęczenia...", "Następnym razem pamiętaj o odpowiednim odpoczynku.", 5);
 
             GameManager.instance.money -= 50;
             GameManager.instance.moneyTextField.text = GameManager.instance.money.ToString();

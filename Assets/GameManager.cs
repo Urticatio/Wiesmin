@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
         instance = this;
         ItemSpawnManager.instance = itemSpawnManager;
         signPanel.SetActive(false);
+        
     }
 
     public GameObject player;
@@ -19,6 +20,7 @@ public class GameManager : MonoBehaviour
     public DragAndDropController dragAndDropController;
     public ShopController shopController;
     public FableController fableController;
+    public EventController eventController;
     public ItemSpawnManager itemSpawnManager;
     public BarController barController;
     public GameObject toolbarPanel;

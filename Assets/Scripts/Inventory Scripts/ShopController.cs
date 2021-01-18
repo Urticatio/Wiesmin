@@ -38,7 +38,7 @@ public class ShopController : MonoBehaviour
             }
             else
             {
-                UnityEditor.EditorUtility.DisplayDialog(" ", "Nie stać cię na to!", "Przyjdę później", "Bywaj");
+                GameManager.instance.eventController.ShowEvent("Nie stać cię na to!", "", 3);
             }
 
             
