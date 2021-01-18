@@ -25,7 +25,8 @@ public class FableController : MonoBehaviour
     {
         "Miłe upraw początki",
         "Miecze i pomidory",
-        "Tajemnica znikających marchewek"
+        "Tajemnica znikających marchewek",
+        "Królikołak"
     };
     private readonly string [] bodies = new string[]
     {
@@ -38,7 +39,12 @@ public class FableController : MonoBehaviour
         "Mimo braku niebezpieczeństw i czyhających za rogiem potworów, Geralt czuje się nieswojo bez żadnego oręża. Na szczęście zadbał o łącze światłowodowe w swoim nowym domu. Czas zarobić pieniądze i kupić miecz w sklepie internetowym." +
         "\n\n",
 
-        ""
+        "Pewnego dnia, Geralt zauważył czyjeś ślady na farmie. Niektóre grządki były naruszone, a rośliny wyrwane.\n" +
+        "Okazuje się, że ucierpiała jedynie uprawa marchwi. Wszystko wskazuje na pojawienie się w okolicy Królikołaka.\n" +
+        "Chcąc nie chcąc, Geralt postanowił zwabić potwora i się z nim rozprawić." +
+        "\n\n",
+
+        "Zaczekaj na farmie do wieczora i rozpraw się z potworem. \n\n"
 
     };
     private readonly string[] quests = new string[]
@@ -53,7 +59,12 @@ public class FableController : MonoBehaviour
         "- Skorzystaj ze sklepu internetowego w domu.\n" +
         "- Kup odpowiedni oręż." ,
 
-        ""
+        "Zadania do wykonania:\n" +
+        "- Zbierz 100 marchewek jako przynętę na Królikołaka.\n" +
+        "- [Opcjonalnie] Kup lepszą broń.",
+
+        "Zadania do wykonania:\n" +
+        "- Pokonaj Królikołaka."
     };
 
     void Awake()
@@ -84,6 +95,20 @@ public class FableController : MonoBehaviour
             SetSignText(titles[currentQuest], bodies[currentQuest],quests[currentQuest]);
             showedNewQuest = true;
         }
+        else if ((currentQuest == 2) && (!showedNewQuest))
+        {
+            eventController.ShowEvent("Nowe zadanie", titles[currentQuest], 5);
+            ChangeSignSpriteToNew();
+            SetSignText(titles[currentQuest], bodies[currentQuest], quests[currentQuest]);
+            showedNewQuest = true;
+        }
+
+        //******TODO******
+        if (false)//sprawdzanie, czy jest 100 marchewek
+        {
+            NextQuest();
+        }
+        //*************
     }
 
     private void SetSignText(string title, string body, string quest)

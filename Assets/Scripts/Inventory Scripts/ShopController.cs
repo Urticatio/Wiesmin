@@ -35,6 +35,13 @@ public class ShopController : MonoBehaviour
                 GameManager.instance.money -= itemSlot.item.price;
                 inventory.Add(itemSlot.item, 1, inventory);//dodaje do ekwipunku przedmiot
                 UpdateInventoryAndMoney();
+
+                //**********QUEST 1************** 
+                if ((itemSlot.item.name=="Sword" || itemSlot.item.name == "FireSword" || itemSlot.item.name == "IceSword") && (GameManager.instance.fableController.GetCurQuest() == 1))
+                {
+                    GameManager.instance.fableController.NextQuest();
+                }
+
             }
             else
             {
