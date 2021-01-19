@@ -112,4 +112,10 @@ public class ItemContainer : ScriptableObject
         GameManager.instance.toolbarPanel.SetActive(true);
     }
 
+    public int Count(string name)
+    {
+        ItemSlot itemSlot = slots.Find(x => x.item.name == name);
+        return itemSlot.count;
+    }
+
 }

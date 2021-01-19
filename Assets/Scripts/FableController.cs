@@ -14,12 +14,14 @@ public class FableController : MonoBehaviour
     [SerializeField] GameObject signNew;
     [SerializeField] GameObject signStandard;
     [SerializeField] int currentQuest; //numer aktualnego questa
+    [SerializeField] ItemContainer inventoryContainer;
     private SpriteRenderer boardSpriteRenderer;
     private Sprite signNewSprite;
     private Sprite signStandardSprite;
     private bool showedNewQuest;//czy pokazano informację o nowym queście
     private bool readSignFirstTime = false;//czy wyświetlono pierwszy raz tablicę ogłoszeniową
     private EventController eventController;
+    private bool defeatedRabbit = false;//czy pokonano królikołaka
 
     private readonly string [] titles = new string[] 
     {
@@ -44,7 +46,10 @@ public class FableController : MonoBehaviour
         "Chcąc nie chcąc, Geralt postanowił zwabić potwora i się z nim rozprawić." +
         "\n\n",
 
-        "Zaczekaj na farmie do wieczora i rozpraw się z potworem. \n\n"
+        "Zaczekaj na farmie do wieczora i rozpraw się z potworem.\n" +
+        "Królikołak nie podzieli się z nikim znalezionymi marchewkami. Gdy cię zobaczy, będzie zachowywał się agresywnie.\n" +
+        "Zadanie ciosu powoduje odtrącenie atakującego Królikołaka. Nie pozwól mu się zanadto zbliżyć." +
+        "\n\n"
 
     };
     private readonly string[] quests = new string[]
@@ -55,7 +60,7 @@ public class FableController : MonoBehaviour
         "- Zbierz pierwsze plony.",
 
         "Zadania do wykonania:\n" +
-        "- Posadź pomidory, ich cena w sklepie jest wyższa niż marchwi.\n" +        
+        "- [Opcjonalnie] Posadź pomidory, ich cena jest wyższa niż marchwi.\n" +        
         "- Skorzystaj ze sklepu internetowego w domu.\n" +
         "- Kup odpowiedni oręż." ,
 
@@ -90,25 +95,38 @@ public class FableController : MonoBehaviour
         }
         else if ((currentQuest == 1) && (!showedNewQuest))
         {
-            eventController.ShowEvent("Nowe zadanie", titles[currentQuest], 5);
-            ChangeSignSpriteToNew();
-            SetSignText(titles[currentQuest], bodies[currentQuest],quests[currentQuest]);
-            showedNewQuest = true;
+            StartNewQuest();
         }
         else if ((currentQuest == 2) && (!showedNewQuest))
         {
-            eventController.ShowEvent("Nowe zadanie", titles[currentQuest], 5);
-            ChangeSignSpriteToNew();
-            SetSignText(titles[currentQuest], bodies[currentQuest], quests[currentQuest]);
+            StartNewQuest();
+        }
+        else if ((currentQuest == 3) && (!showedNewQuest))
+        {
+            StartNewQuest();
+        }
+        else if (currentQuest == 4 && (!showedNewQuest))
+        {
+            eventController.ShowEvent("Zwycięstwo", "Możesz odtąd wieść spokojne życie na farmie", 5);
             showedNewQuest = true;
         }
 
-        //******TODO******
-        if (false)//sprawdzanie, czy jest 100 marchewek
+        if (currentQuest==2)//sprawdzanie, czy jest 100 marchewek (warunek wykonania zadania)
         {
-            NextQuest();
+            Debug.Log(inventoryContainer.Count("Carrot"));
+            if (inventoryContainer.Count("Carrot") >= 100)
+            {
+                NextQuest();
+            }
+            
         }
-        //*************
+        if (currentQuest == 3)//sprawdzanie, czy królikołak jest pokonany
+        {
+            if (defeatedRabbit)
+            {
+                NextQuest();
+            }
+        }
     }
 
     private void SetSignText(string title, string body, string quest)
@@ -138,8 +156,21 @@ public class FableController : MonoBehaviour
         showedNewQuest = false;
     }
 
+    public void StartNewQuest()
+    {
+        eventController.ShowEvent("Nowe zadanie", titles[currentQuest], 5);
+        ChangeSignSpriteToNew();
+        SetSignText(titles[currentQuest], bodies[currentQuest], quests[currentQuest]);
+        showedNewQuest = true;
+    }
+
     public void ReadSignFirstTime()
     {
         readSignFirstTime = true;
+    }
+
+    public void DefeatedRabbit()
+    {
+        defeatedRabbit = true;
     }
 }

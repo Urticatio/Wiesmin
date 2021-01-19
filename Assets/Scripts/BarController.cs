@@ -23,6 +23,7 @@ public class BarController : MonoBehaviour
             staminaBar.SetSize(0);
             healthBar.Subtract(10); //utrata żywotności
             GameManager.instance.money -= 10;
+            if(GameManager.instance.money < 0) GameManager.instance.money = 0;
             GameManager.instance.moneyTextField.text = GameManager.instance.money.ToString();
         }
         if (healthBar.getBarState() <= 0)
@@ -31,6 +32,7 @@ public class BarController : MonoBehaviour
             if (staminaBar.getBarState() == 0) GameManager.instance.eventController.ShowEvent("Umarłeś z przemęczenia...", "Następnym razem pamiętaj o odpowiednim odpoczynku.", 5);
 
             GameManager.instance.money -= 50;
+            if (GameManager.instance.money < 0) GameManager.instance.money = 0;
             GameManager.instance.moneyTextField.text = GameManager.instance.money.ToString();
             ToBed(); //chwilę czeka i przenosi do łóżka
 
