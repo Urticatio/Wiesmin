@@ -20,6 +20,7 @@ public class CharacterController2D : MonoBehaviour
     {
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
+
         motionVector = new Vector2(
             horizontal,
             vertical
@@ -31,7 +32,7 @@ public class CharacterController2D : MonoBehaviour
         moving = horizontal != 0 || vertical != 0;
         animator.SetBool("moving", moving);
 
-        if (horizontal !=0 || vertical !=0)
+        if (horizontal != 0 || vertical != 0)
         {
             lastMotionVector = new Vector2(
                 horizontal,
@@ -40,7 +41,9 @@ public class CharacterController2D : MonoBehaviour
             animator.SetFloat("lastHorizontal", horizontal);
             animator.SetFloat("lastVertical", vertical);
         }
+        
     }
+
     void FixedUpdate()
     {
         Move();

@@ -5,7 +5,8 @@ using UnityEngine;
 public enum ResourceNodeType
 {
     Undefined,
-    Plant
+    Plant,
+    Bunny
 }
 
 
@@ -16,7 +17,6 @@ public class GatherResourceNode : ToolAction
     [SerializeField] List<ResourceNodeType> canHitNodesOfType;
     public override bool OnApply(Vector2 worldPoint)
     {
-        return false;
         Collider2D[] colliders = Physics2D.OverlapCircleAll(worldPoint, sizeOfInteractableArea);
         foreach (Collider2D c in colliders)
         {
@@ -24,7 +24,7 @@ public class GatherResourceNode : ToolAction
             ToolHit hit = c.GetComponent<ToolHit>();
             if (hit != null)
             {
-                if (hit.CanBeHit(canHitNodesOfType))
+                if (hit.CanBeHit(canHitNodesOfType) == true)
                 {
                     hit.Hit();
                     return true;

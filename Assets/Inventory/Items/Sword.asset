@@ -16,3 +16,7 @@ MonoBehaviour:
   stackable: 0
   icon: {fileID: 21300000, guid: a35024c7e0cda5142a26e0180edd6491, type: 3}
   price: 50
+  onAction: {fileID: 11400000, guid: 845891cd02238de4dadb9c5c5a312c98, type: 2}
+  onTileMapAction: {fileID: 0}
+  onItemUsed: {fileID: 0}
+  crop: {fileID: 0}

@@ -11,21 +11,26 @@ public class ResourceNode : ToolHit
     [SerializeField] int intemCountInOneDrop = 1;
     [SerializeField] int dropCount = 5;
     [SerializeField] ResourceNodeType nodeType;
+    [SerializeField] int hp;
 
     public override void Hit()
     {
-        while (dropCount > 0)
+        hp--;
+        if(hp<0)
         {
-            dropCount -= 1;
+            while (dropCount > 0)
+            {
+                dropCount -= 1;
 
-            Vector3 position = transform.position;
-            position.x += spread * UnityEngine.Random.value - spread / 2;
-            position.y += spread * UnityEngine.Random.value - spread / 2;
-            //GameObject go = Instantiate(pickUpDrop);
-            //go.transform.position = position
+                Vector3 position = transform.position;
+                position.x += spread * UnityEngine.Random.value - spread / 2;
+                position.y += spread * UnityEngine.Random.value - spread / 2;
+                GameObject go = Instantiate(pickUpDrop);
+                go.transform.position = position;
 
+            }
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
         Debug.Log("hit");
     }
 
