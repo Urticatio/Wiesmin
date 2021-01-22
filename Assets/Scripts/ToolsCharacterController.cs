@@ -66,7 +66,6 @@ public class ToolsCharacterController : MonoBehaviour
 
         animator.SetTrigger("attacking");
         bool complete = item.onAction.OnApply(position);
-        Debug.Log("in use tool world");
         if (complete)
         {
             if (item.onItemUsed != null)
