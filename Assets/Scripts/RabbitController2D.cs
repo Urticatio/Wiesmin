@@ -21,11 +21,11 @@ public class RabbitController2D : MonoBehaviour
         if (rabbit.activeInHierarchy)
         {
             GetPos();
-        }
-        
+        }        
     }
     void GetPos()
     {
+        target = player.transform;
         float distanceFromPlayer = Vector3.Distance(target.position, transform.position);
         if (distanceFromPlayer > lineOfSite) //jeśli jest za daleko od postaci
         {

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -16,6 +17,8 @@ public class FableController : MonoBehaviour
     [SerializeField] int currentQuest; //numer aktualnego questa
     [SerializeField] ItemContainer inventoryContainer;
     private SpriteRenderer boardSpriteRenderer;
+
+
     private Sprite signNewSprite;
     private Sprite signStandardSprite;
     private bool showedNewQuest;//czy pokazano informację o nowym queście
@@ -142,10 +145,13 @@ public class FableController : MonoBehaviour
                 {
                     NextQuest();
                 }
-            }
-            
-
-            
+            } 
+        }
+        //cheat
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            NextQuest();
+            StartNewQuest();
         }
     }
 
@@ -169,6 +175,10 @@ public class FableController : MonoBehaviour
     public int GetCurQuest()
     {
         return currentQuest;
+    }
+    public void SetCurQuest(int currQuest)
+    {
+        currentQuest = currQuest;
     }
     public void NextQuest()
     {

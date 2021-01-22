@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,8 +11,15 @@ public class GameManager : MonoBehaviour
     {
         instance = this;
         ItemSpawnManager.instance = itemSpawnManager;
-        signPanel.SetActive(false);
-        
+        signPanel.SetActive(false);     
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        }
     }
 
     public GameObject player;
