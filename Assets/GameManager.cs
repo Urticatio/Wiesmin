@@ -15,12 +15,14 @@ public class GameManager : MonoBehaviour
     }
 
     public GameObject player;
+    public GameObject monster;
     public ItemContainer inventoryContainer;
     public ItemContainer shopContainer;
     public DragAndDropController dragAndDropController;
     public ShopController shopController;
     public FableController fableController;
     public EventController eventController;
+    public DayTimeController dayTimeController;
     public ItemSpawnManager itemSpawnManager;
     public BarController barController;
     public GameObject toolbarPanel;

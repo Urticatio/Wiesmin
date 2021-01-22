@@ -5,26 +5,43 @@ using UnityEngine;
 public class RabbitController2D : MonoBehaviour
 {
     private Transform target;
-    [SerializeField] float speed = 2f;
+    public float highSpeed = 0.05f;
+    public float lowSpeed = 0.025f;
+    private float speed = 0.05f;
     [SerializeField] int attack = 3;
-    public float lineOfSite;
+    public float lineOfSite = 7.0f;
+    public GameObject rabbit;
+    public GameObject player;
     void Start()
     {
-        target = GameObject.FindWithTag("MainCamera").transform;
+        target = player.transform;
     }
     void Update()
     {
-        getPos();
-    }
-    void getPos()
-    {
-        float distanceFromPlayer = Vector2.Distance(target.position, transform.position);
-        if(lineOfSite > distanceFromPlayer)
+        if (rabbit.activeInHierarchy)
         {
-            this.transform.position = Vector2.MoveTowards(this.transform.position, target.position, speed * Time.deltaTime);
+            GetPos();
         }
-        if(distanceFromPlayer < 0.3)
+        
+    }
+    void GetPos()
+    {
+        float distanceFromPlayer = Vector3.Distance(target.position, transform.position);
+        if (distanceFromPlayer > lineOfSite) //jeśli jest za daleko od postaci
+        {
+            return; //przerywa funkcję
+        }
+        if (distanceFromPlayer < lineOfSite)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, target.position, speed);
+        }
+        if (distanceFromPlayer < 0.5)
+        {
+            //speed = lowSpeed;
             GameManager.instance.healthBar.Subtract(1);
+        }
+        //else speed = highSpeed;
+            
     }
     /*
     Vector2 motionVector;

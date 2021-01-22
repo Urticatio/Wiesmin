@@ -120,12 +120,32 @@ public class FableController : MonoBehaviour
             }
             
         }
-        if (currentQuest == 3)//sprawdzanie, czy królikołak jest pokonany
+        if (currentQuest == 3)
         {
-            if (defeatedRabbit)
+            GameObject rabbit = GameManager.instance.monster;
+            if (rabbit != null)
             {
-                NextQuest();
+                if (!rabbit.activeInHierarchy)//jeśli go nie widać
+                {
+                    //jeśli jest noc
+                    if(GameManager.instance.dayTimeController.GetHour() > 20 || GameManager.instance.dayTimeController.GetHour() < 5)
+                    {
+                        rabbit.SetActive(true);
+                    }
+                
+                }
             }
+            else
+            {
+                defeatedRabbit = true;
+                if (defeatedRabbit)//sprawdzanie, czy królikołak jest pokonany
+                {
+                    NextQuest();
+                }
+            }
+            
+
+            
         }
     }
 

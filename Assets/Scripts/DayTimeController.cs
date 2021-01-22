@@ -61,6 +61,11 @@ public class DayTimeController : MonoBehaviour
     {
         get { return time / 3600f;  }
     }
+
+    public int GetHour()
+    {
+        return (int)Hours;
+    }
     float Minutes
     {
         get { return time % 3600f / 60f; }

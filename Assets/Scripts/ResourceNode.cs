@@ -5,7 +5,7 @@ using UnityEngine;
 public class ResourceNode : ToolHit
 {
     [SerializeField] GameObject pickUpDrop;
-    [SerializeField] float spread = 0.7f;
+    [SerializeField] float spread = 0.05f;
 
     [SerializeField] Item item;
     [SerializeField] int intemCountInOneDrop = 1;
@@ -23,8 +23,8 @@ public class ResourceNode : ToolHit
                 dropCount -= 1;
 
                 Vector3 position = transform.position;
-                position.x += spread * UnityEngine.Random.value - spread / 2;
-                position.y += spread * UnityEngine.Random.value - spread / 2;
+                position.x += spread * (UnityEngine.Random.value - 0.5f);
+                position.y += spread * (UnityEngine.Random.value - 0.5f);
                 GameObject go = Instantiate(pickUpDrop);
                 go.transform.position = position;
 
