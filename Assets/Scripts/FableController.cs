@@ -22,11 +22,14 @@ public class FableController : MonoBehaviour
     private Sprite signNewSprite;
     private Sprite signStandardSprite;
     private bool showedNewQuest;//czy pokazano informację o nowym queście
-    private bool readSignFirstTime = false;//czy wyświetlono pierwszy raz tablicę ogłoszeniową
-    private EventController eventController;
-    private bool defeatedRabbit = false;//czy pokonano królikołaka
+    public bool readSignFirstTime { get; set; }//czy wyświetlono pierwszy raz tablicę ogłoszeniową
 
-    private readonly string [] titles = new string[] 
+    
+
+    private EventController eventController;
+    public bool defeatedRabbit { get; set; }//czy pokonano królikołaka
+
+    public readonly string [] titles = new string[] 
     {
         "Miłe upraw początki",
         "Miecze i pomidory",
@@ -77,6 +80,8 @@ public class FableController : MonoBehaviour
 
     void Awake()
     {
+        defeatedRabbit = false;
+        readSignFirstTime = false;
         eventController = GameManager.instance.eventController;
         boardSpriteRenderer = announcementBoardSign.GetComponent<SpriteRenderer>();
         signNewSprite = signNew.GetComponent<SpriteRenderer>().sprite;
@@ -180,6 +185,7 @@ public class FableController : MonoBehaviour
     {
         currentQuest = currQuest;
     }
+
     public void NextQuest()
     {
         currentQuest++;

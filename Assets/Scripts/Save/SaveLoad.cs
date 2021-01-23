@@ -13,7 +13,7 @@ public class SaveLoad : MonoBehaviour
     void Start()
     {
         slController = GetComponent<SaveLoadController>();
-        savePath = Application.persistentDataPath + "gamesave.save";
+        savePath = Application.persistentDataPath + "Wiesmin.save";
     }
 
     public void SaveData()

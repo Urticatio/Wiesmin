@@ -32,6 +32,7 @@ public class ItemSlot
 }
 
 [CreateAssetMenu(menuName = "Data/Item Container")]
+
 public class ItemContainer : ScriptableObject
 {
     public List<ItemSlot> slots; //tu przechowywane są itemki

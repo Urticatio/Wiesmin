@@ -13,9 +13,17 @@ public class MainMenu : MonoBehaviour
 
     public void LoadGame()
     {
-        /*TODO*/
+        StartCoroutine(LoadGame_Coroutine());         
+    }
+    IEnumerator LoadGame_Coroutine()
+    {
+        GameObject canvas = GameObject.Find("Canvas");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        yield return null; //czeka aż się scena wczyta
+        Debug.Log("Wczytuję zapisaną grę");
+        GameManager.instance.saveLoadController.LoadGame();
+        Destroy(canvas);
 
-        ////////
     }
 
     public void QuitGame()

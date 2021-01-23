@@ -5,9 +5,7 @@ using UnityEngine;
 public class RabbitController2D : MonoBehaviour
 {
     private Transform target;
-    public float highSpeed = 0.05f;
-    public float lowSpeed = 0.025f;
-    private float speed = 0.05f;
+    private float speed = 0.02f;
     [SerializeField] int attack = 3;
     public float lineOfSite = 7.0f;
     public GameObject rabbit;
@@ -35,12 +33,10 @@ public class RabbitController2D : MonoBehaviour
         {
             transform.position = Vector3.MoveTowards(transform.position, target.position, speed);
         }
-        if (distanceFromPlayer < 0.5)
+        if (distanceFromPlayer < 1.0)
         {
-            //speed = lowSpeed;
-            GameManager.instance.healthBar.Subtract(1);
+            GameManager.instance.healthBar.Subtract(0.5f);
         }
-        //else speed = highSpeed;
             
     }
     /*
