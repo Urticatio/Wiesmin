@@ -5,19 +5,29 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    GameObject canvas;
+    private void Start()
+    {
+        canvas = GameObject.Find("Canvas");
+    }
+
     public void PlayGame()
     {
         //włącza następną w kolejce scenę
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);        
+        StartCoroutine(NewGame_Coroutine());
     }
-
+    IEnumerator NewGame_Coroutine()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        yield return null; //czeka aż się scena wczyta
+        Destroy(canvas);
+    }
     public void LoadGame()
     {
         StartCoroutine(LoadGame_Coroutine());         
     }
     IEnumerator LoadGame_Coroutine()
     {
-        GameObject canvas = GameObject.Find("Canvas");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         yield return null; //czeka aż się scena wczyta
         Debug.Log("Wczytuję zapisaną grę");
