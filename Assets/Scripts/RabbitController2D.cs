@@ -10,6 +10,7 @@ public class RabbitController2D : MonoBehaviour
     public float lineOfSite = 7.0f;
     public GameObject rabbit;
     public GameObject player;
+    [SerializeField] Animator animator;
     void Start()
     {
         target = player.transform;
@@ -32,6 +33,7 @@ public class RabbitController2D : MonoBehaviour
         if (distanceFromPlayer < lineOfSite)
         {
             transform.position = Vector3.MoveTowards(transform.position, target.position, speed);
+            animate();
         }
         if (distanceFromPlayer < 1.0)
         {
@@ -39,54 +41,12 @@ public class RabbitController2D : MonoBehaviour
         }
             
     }
-    /*
-    Vector2 motionVector;
-    public Vector2 lastMotionVector;
-    
-    Animator animator;
-    public bool moving;
-    //Vector2 characterPosiiton = transform.position;
-    void Awake()
+    void animate()
     {
-        rigidbody2d = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
-    }
-    private void Update()
-    {
-        float horizontal = Input.GetAxisRaw("Horizontal");
-        float vertical = Input.GetAxisRaw("Vertical");
+        float horizontal = target.position.x - transform.position.x;
+        float vertical = target.position.y - transform.position.y;
 
-        motionVector = new Vector2(
-            horizontal,
-            vertical
-            );
         animator.SetFloat("horizontal", horizontal);
         animator.SetFloat("vertical", vertical);
-
-
-        moving = horizontal != 0 || vertical != 0;
-        animator.SetBool("moving", moving);
-
-        if (horizontal != 0 || vertical != 0)
-        {
-            lastMotionVector = new Vector2(
-                horizontal,
-                vertical
-                ).normalized;
-            animator.SetFloat("lastHorizontal", horizontal);
-            animator.SetFloat("lastVertical", vertical);
-        }
-
     }
-
-    void FixedUpdate()
-    {
-        Move();
-    }
-    private void Move()
-    {
-        rigidbody2d.velocity = motionVector * speed;
-
-    }
-    */
 }
