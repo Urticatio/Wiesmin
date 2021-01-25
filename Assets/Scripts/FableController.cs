@@ -136,7 +136,7 @@ public class FableController : MonoBehaviour
                 if (!rabbit.activeInHierarchy)//jeśli go nie widać
                 {
                     //jeśli jest noc
-                    if(GameManager.instance.dayTimeController.GetHour() > 20 || GameManager.instance.dayTimeController.GetHour() < 5)
+                    if(GameManager.instance.dayTimeController.GetHour() > 21 || GameManager.instance.dayTimeController.GetHour() < 5)
                     {
                         rabbit.SetActive(true);
                     }
