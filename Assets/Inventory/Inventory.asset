@@ -20,7 +20,7 @@ MonoBehaviour:
     count: 1
     container: {fileID: 11400000}
   - item: {fileID: 11400000, guid: 23c133422466e154aa6b96cda57de36f, type: 2}
-    count: 2
+    count: 3
     container: {fileID: 11400000}
   - item: {fileID: 0}
     count: 0
