@@ -15,7 +15,7 @@ MonoBehaviour:
   Name: Tomato
   stackable: 1
   icon: {fileID: -6080948203882831335, guid: 0631b5b1e12b3524cac08f7e6e815549, type: 3}
-  price: 7
+  price: 8
   onAction: {fileID: 0}
   onTileMapAction: {fileID: 11400000, guid: 7b1a176d324719247a153ba99c6ee482, type: 2}
   onItemUsed: {fileID: 11400000, guid: 7b1a176d324719247a153ba99c6ee482, type: 2}

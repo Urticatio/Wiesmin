@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
-using UnityEditor.Tilemaps;
+//using UnityEditor.Tilemaps;
 
 public class TileMapReadController : MonoBehaviour
 {

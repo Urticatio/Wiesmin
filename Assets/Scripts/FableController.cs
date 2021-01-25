@@ -54,7 +54,7 @@ public class FableController : MonoBehaviour
 
         "Zaczekaj na farmie do wieczora i rozpraw się z potworem.\n" +
         "Królikołak nie podzieli się z nikim znalezionymi marchewkami. Gdy cię zobaczy, będzie zachowywał się agresywnie.\n" +
-        "Zadanie ciosu powoduje odtrącenie atakującego Królikołaka. Nie pozwól mu się zanadto zbliżyć." +
+        "Nie pozwól mu się zanadto zbliżyć." +
         "\n\n"
 
     };
