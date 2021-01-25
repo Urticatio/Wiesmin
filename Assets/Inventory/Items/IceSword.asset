@@ -15,7 +15,7 @@ MonoBehaviour:
   Name: IceSword
   stackable: 0
   icon: {fileID: 21300000, guid: cb21e12140e9a6a4e83b96b0acfb637c, type: 3}
-  price: 650
+  price: 750
   onAction: {fileID: 11400000, guid: 845891cd02238de4dadb9c5c5a312c98, type: 2}
   onTileMapAction: {fileID: 0}
   onItemUsed: {fileID: 0}

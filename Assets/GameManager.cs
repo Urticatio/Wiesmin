@@ -11,7 +11,8 @@ public class GameManager : MonoBehaviour
     {
         instance = this;
         ItemSpawnManager.instance = itemSpawnManager;
-        signPanel.SetActive(false);     
+        signPanel.SetActive(false);
+        instance.moneyTextField.text = instance.money.ToString();
     }
 
     private void Update()

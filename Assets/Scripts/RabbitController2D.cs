@@ -5,7 +5,7 @@ using UnityEngine;
 public class RabbitController2D : MonoBehaviour
 {
     private Transform target;
-    private float speed = 0.04f;
+    private float speed = 0.05f;
     [SerializeField] int attack = 3;
     public float lineOfSite = 10.0f;
     public GameObject rabbit;

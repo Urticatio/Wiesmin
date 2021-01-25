@@ -29,8 +29,9 @@ public class BarController : MonoBehaviour
         if (healthBar.getBarState() <= 0)
         {
             healthBar.SetSize(1);
-            if (staminaBar.getBarState() == 0) GameManager.instance.eventController.ShowEvent("Umarłeś z przemęczenia...", "Następnym razem pamiętaj o odpowiednim odpoczynku.", 5);
 
+            if (staminaBar.getBarState() == 0) GameManager.instance.eventController.ShowEvent("Umarłeś z przemęczenia...", "Następnym razem pamiętaj o odpowiednim odpoczynku.", 5);
+            else GameManager.instance.eventController.ShowEvent("Zginąłeś..", "Odnów życie odpoczywając w łóżku", 5);
             GameManager.instance.money -= 50;
             if (GameManager.instance.money < 0) GameManager.instance.money = 0;
             GameManager.instance.moneyTextField.text = GameManager.instance.money.ToString();
